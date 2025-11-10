@@ -120,7 +120,7 @@ class path_planner:
 		#self.path_img.show()
 		self.graphics.draw_path(self.path_img)
 
-	def check_vicinity(self,x1,y1,x2,y2,threshold = 1.0):
+	def check_vicinity(self,x1,y1,x2,y2,threshold = 1.0): #can MODIFY THIS CODE HERE AND CHANGE HOWEVER,
 		if(math.sqrt((x1-x2)**2+(y1-y2)**2)<threshold):
 			return True
 		else:
@@ -157,7 +157,8 @@ class path_planner:
 
 
 		#If you decide the path between start_node and random_node should be within your final path, you must do:
-		points = bresenham(self.start_node.map_i,self.start_node.map_j,random_node.map_i,random_node.map_j)
+		points = bresenham(self.start_node.map_i,self.start_node.map_j,random_node.map_i,random_node.map_j) #this just says we know i and j, we can connect the nodes, so this picks which pixels to actually connect through
+		#we just need to add each pose 1 by 1 thats it, this only goes in a straight line for now, however, if we want, we can make it a curve, it reflects the kinematics of a robot but it is much much harder, the configuration space will then go to x y and velocity
 		for p in points:
 			self.path.add_pose(Pose(map_i=p[0],map_j=p[1],theta=0))
 
