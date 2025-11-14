@@ -39,7 +39,7 @@ class path_planner:
 		self.live_update_rate = 200 #how many nodes will it update the live tracking on the gui
 
 		self.set_start(world_x = 0, world_y = 0)
-		self.set_goal(world_x = 100.0, world_y = 200.0, world_theta = .0)
+		self.set_goal(world_x = 179.0, world_y = -230.0, world_theta = .0)
 
 		self.plan_path()
 		self._show_path()
@@ -279,11 +279,12 @@ class path_planner:
 			#get the lowest f_score from queue first,
 
 			current_f, current_h, current_node = heapq.heappop(open_list_pq) #takes our smallest item out of the priority queue and unpacks it into our current  values
-			nodes_explored += 1
+
 
 			if current_node in closed_set:
 				continue #if we've already processed it, then just skip
 
+			nodes_explored += 1
 			if current_node == goal_node:
 				print(f"Goal reached, exploring {nodes_explored} nodes")
 
